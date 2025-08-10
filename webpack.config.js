@@ -9,6 +9,7 @@ module.exports = {
     libraryTarget: 'umd',
     filename: 'single-spa-home-app.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: 'http://localhost:4203/'
   },
   module: {
     rules: [
@@ -40,7 +41,11 @@ module.exports = {
   devtool: 'source-map',
   externals: [],
   devServer: {
+    port: 4203,
     historyApiFallback: true,
     writeToDisk: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
   },
 };
